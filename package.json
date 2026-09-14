@@ -1,6 +1,6 @@
 {
   "name": "@powerduck/md-editor",
-  "version": "0.11.3",
+  "version": "0.11.4",
   "description": "High-performance embeddable Markdown editor: KaTeX math, Markmap mindmaps, highlight.js code blocks with copy button, github-markdown-css preview, admonition blocks, rich toolbar with image/video/YouTube/table popups, keyboard shortcuts, configurable toolbar, image upload hook, standalone renderMarkdown API, React component, block-level incremental rendering. Simple and complex modes, light/dark themes.",
   "type": "module",
   "main": "dist/index.cjs",
@@ -92,5 +92,14 @@
     "typescript": "^5.5.4",
     "vite": "^5.4.0",
     "vitest": "^2.1.0"
-  }
+  },
+  "author": "POWERDUCK LIMITED",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/powerducklab/md-editor.git"
+  },
+  "bugs": {
+    "url": "https://github.com/powerducklab/md-editor/issues"
+  },
+  "homepage": "https://www.powerduck.com/"
 }
