@@ -182,8 +182,8 @@ new MarkdownEditor("#editor", {
 | `preview`        | `boolean`                 | `true`      | Show preview pane                       |
 | `autoPreview`    | `boolean`                 | `true`      | Auto-update preview                     |
 | `renderDebounce` | `number`                  | `200`       | Preview render debounce in ms           |
-| `mention`        | `MentionConfig`           | -           | @mention configuration                  |
-| `docLink`        | `DocLinkConfig`           | -           | Document link card configuration        |
+| `mention`        | `MentionOptions`           | -           | @mention configuration                  |
+| `docLink`        | `DocLinkOptions`           | -           | Document link card configuration        |
 
 ### Imperative Handle (React)
 
@@ -198,10 +198,10 @@ interface MarkdownEditorHandle {
 }
 ```
 
-### MentionConfig
+### MentionOptions
 
 ```typescript
-interface MentionConfig {
+interface MentionOptions {
   onMentionSearch: (query: string) => MentionItem[] | Promise<MentionItem[]>;
   onMentionSelect?: (item: MentionItem) => string;
   minChars?: number;
@@ -210,10 +210,10 @@ interface MentionConfig {
 }
 ```
 
-### DocLinkConfig
+### DocLinkOptions
 
 ```typescript
-interface DocLinkConfig {
+interface DocLinkOptions {
   onDocSearch: (query: string) => DocItem[] | Promise<DocItem[]>;
   onFetchDocMeta?: (url: string) => Promise<DocMeta>;
   insertStyle?: "card" | "link" | "auto";
@@ -232,11 +232,13 @@ import type {
   MentionItem,
   DocItem,
   DocMeta,
-  MentionConfig,
-  DocLinkConfig,
+  MentionOptions,
+  DocLinkOptions,
+} from "@powerduck/md-editor";
+import type {
   MarkdownEditorHandle,
   MarkdownEditorProps,
-} from "@powerduck/md-editor";
+} from "@powerduck/md-editor/react";
 ```
 
 ---
