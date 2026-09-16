@@ -23,6 +23,13 @@ export interface RendererOptions {
   html?: boolean;
   /** Convert soft line breaks to <br>. Default: false. */
   breaks?: boolean;
+  /**
+   * Theme for standalone rendering. When set, the rendered HTML is wrapped
+   * in a container with `data-theme` so that code blocks, tables, and other
+   * elements inherit the correct dark/light token variables. Use this when
+   * rendering markdown outside of a `.md-editor-root` container.
+   */
+  theme?: "light" | "dark";
 }
 
 export class Renderer {
@@ -107,5 +114,11 @@ export function renderMarkdown(
   options: RendererOptions = {},
 ): string {
   const renderer = new Renderer(options);
-  return renderer.render(source);
+  const html = renderer.render(source);
+
+  if (options.theme) {
+    return `<div class="md-editor-standalone" data-theme="${options.theme}">${html}</div>`;
+  }
+
+  return html;
 }

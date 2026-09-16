@@ -129,6 +129,37 @@
   --color-attention-fg: #d29922;
 }
 
+/* Standalone renderMarkdown() with theme: "dark" — same tokens as editor dark mode */
+.md-editor-standalone[data-theme='dark'] {
+  --code-bg: #0d1117;
+  --code-header-bg: #161b22;
+  --code-fg: #c9d1d9;
+  --code-border: #3d444d;
+  --code-keyword: #ff7b72;
+  --code-string: #a5d6ff;
+  --code-number: #79c0ff;
+  --code-comment: #8b949e;
+  --code-function: #d2a8ff;
+  --code-type: #ffa657;
+  --code-attr: #79c0ff;
+  --code-tag: #7ee787;
+  --code-meta: #8b949e;
+  --code-literal: #79c0ff;
+  --code-addition: #7ee787;
+  --code-deletion: #ffa198;
+  --color-fg-default: #edf0f3;
+  --color-fg-muted: #b8bec7;
+  --color-fg-subtle: #89919c;
+  --color-canvas-default: #1f2125;
+  --color-canvas-subtle: #25282d;
+  --color-border-default: #3b4149;
+  --color-border-muted: #2d3239;
+  --color-accent-fg: #f4a04a;
+  --color-danger-fg: #f85149;
+  --color-success-fg: #3fb950;
+  --color-attention-fg: #d29922;
+}
+
 /* ---------------- Toolbar / nav ---------------- */
 .md-editor-toolbar {
   display: flex;
