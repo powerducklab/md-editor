@@ -83,7 +83,7 @@ const html = editor.getHtml();
 
 - [Official Website](https://www.powerduck.com/opensource/md-editor.html)
 - [Documentation](https://www.powerduck.com/docs/md-editor/introduction)
-- [Live Demo](https://www.powerduck.com/demo/md-editor)
+- [Live Demo](https://www.powerduck.com/demo/)
 - [GitHub](https://github.com/powerducklab/md-editor)
 - [npm](https://www.npmjs.com/package/@powerduck/md-editor)
 
@@ -193,8 +193,9 @@ interface MarkdownEditorHandle {
   setValue(value: string): void;
   getHtml(): string;
   focus(): void;
-  blur(): void;
-  clear(): void;
+  setMode(mode: EditorMode): void;
+  setTheme(theme: EditorTheme): void;
+  renderNow(): void;
 }
 ```
 
