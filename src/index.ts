@@ -516,7 +516,7 @@ export class MarkdownEditor {
     const footer = popup.el.querySelector('.md-editor-popup-footer') as HTMLElement | null;
     if (footer) {
       footer.innerHTML =
-        '<span class="md-editor-help-brand-text">PowerDuck Markdown Editor</span>' +
+        '<span class="md-editor-help-brand-text">Powerduck Markdown Editor</span>' +
         '<a href="https://www.powerduck.com" target="_blank" rel="noopener noreferrer" class="md-editor-help-link">powerduck.com</a>';
       footer.style.justifyContent = 'space-between';
       footer.style.alignItems = 'center';

@@ -60,7 +60,7 @@ describe("v0.10.3 regression - help popup branding", () => {
     const popup = document.querySelector(".md-editor-popup");
     expect(popup).not.toBeNull();
     if (popup) {
-      expect(popup.textContent).toContain("PowerDuck Markdown Editor");
+      expect(popup.textContent).toContain("Powerduck Markdown Editor");
       expect(popup.textContent).toContain("powerduck.com");
       const link = popup.querySelector(".md-editor-help-link") as HTMLAnchorElement | null;
       expect(link).not.toBeNull();

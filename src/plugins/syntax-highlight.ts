@@ -5,7 +5,7 @@ import { tags } from '@lezer/highlight';
 /**
  * Markdown syntax highlighting themes.
  *
- * Colors follow the GitHub-inspired palette used across the PowerDuck
+ * Colors follow the GitHub-inspired palette used across the Powerduck
  * product family. Headings are violet, code is green, links are blue,
  * code language labels are red. Markup punctuation (#, -, >, `) is
  * rendered in a muted tone so the content stays prominent.
