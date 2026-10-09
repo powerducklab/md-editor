@@ -256,3 +256,7 @@ import type {
 ## License
 
 MIT © [POWERDUCK LIMITED](https://www.powerduck.com)
+
+## 0.11.9 — Preserving uncontrolled edits
+
+Changing structural React props such as `preview`, `mode` or `math` recreates the editor without resetting current uncontrolled content to `defaultValue`. A supplied controlled `value` still takes precedence.

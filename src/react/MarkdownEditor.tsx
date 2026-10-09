@@ -68,13 +68,14 @@ export const MarkdownEditorReact = forwardRef<MarkdownEditorHandle, MarkdownEdit
 
     const containerRef = useRef<HTMLDivElement>(null);
     const instanceRef = useRef<MarkdownEditor | null>(null);
+    const retainedValueRef = useRef<string | undefined>(undefined);
     const onChangeRef = useRef(onChange);
     onChangeRef.current = onChange;
 
     useLayoutEffect(() => {
       if (!containerRef.current) return;
       const instance = new MarkdownEditor(containerRef.current, {
-        value: value ?? defaultValue ?? '',
+        value: value ?? retainedValueRef.current ?? defaultValue ?? '',
         mode,
         theme,
         math,
@@ -87,6 +88,7 @@ export const MarkdownEditorReact = forwardRef<MarkdownEditorHandle, MarkdownEdit
       });
       instanceRef.current = instance;
       return () => {
+        retainedValueRef.current = instance.getValue();
         instance.destroy();
         instanceRef.current = null;
       };

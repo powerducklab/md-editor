@@ -1,5 +1,7 @@
 import { describe, expect, it, vi } from 'vitest';
-import { render, screen } from '@testing-library/react';
+import { createRef } from 'react';
+import type {MarkdownEditorHandle} from '../src/react/MarkdownEditor.js';
+import { act, render, screen } from '@testing-library/react';
 import { MarkdownEditorReact } from '../src/react/MarkdownEditor.js';
 
 describe('MarkdownEditorReact', () => {
@@ -84,4 +86,14 @@ describe('MarkdownEditorReact', () => {
     );
     warnSpy.mockRestore();
   });
+});
+
+it('preserves uncontrolled edits when structural preview settings recreate the editor',()=>{
+ const ref=createRef<MarkdownEditorHandle>();
+ const view=render(<MarkdownEditorReact ref={ref} defaultValue="initial" preview={true} />);
+ act(()=>ref.current?.setValue('unsaved edit'));
+ view.rerender(<MarkdownEditorReact ref={ref} defaultValue="initial" preview={false} />);
+ expect(ref.current?.getValue()).toBe('unsaved edit');
+ view.rerender(<MarkdownEditorReact ref={ref} defaultValue="initial" preview={true} value="controlled" />);
+ expect(ref.current?.getValue()).toBe('controlled');
 });
