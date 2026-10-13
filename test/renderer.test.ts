@@ -242,3 +242,14 @@ describe('Renderer - code highlighting integration', () => {
     expect(html).not.toContain('md-editor-codeblock');
   });
 });
+
+describe('video labels are untrusted Markdown text', () => {
+  it('does not create elements or event attributes from a video label', () => {
+    const r = new Renderer({ html: false });
+    const html = r.render('![<img src=x onerror=alert(1)>](https://example.com/v.mp4)');
+    expect(html).not.toContain('<img');
+    expect(html).toContain('&lt;img');
+    const quoted = r.render('![" onmouseover="alert(1)](https://example.com/v.mp4)');
+    expect(quoted).not.toContain('title="" onmouseover=');
+  });
+});

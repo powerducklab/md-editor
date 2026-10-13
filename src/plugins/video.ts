@@ -29,8 +29,9 @@ export function useVideo(md: MarkdownIt): void {
 
     const src = token.attrGet("src") ?? "";
     if (isVideoFile(src)) {
-      const alt = token.content || "";
-      return `<video src="${src}" controls class="md-editor-video" title="${alt}">${alt}</video>`;
+      const alt = md.utils.escapeHtml(token.content || "");
+      const safeSrc = md.utils.escapeHtml(src);
+      return `<video src="${safeSrc}" controls class="md-editor-video" title="${alt}">${alt}</video>`;
     }
     return defaultImage(tokens, idx, options, env, self);
   };

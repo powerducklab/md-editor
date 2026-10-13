@@ -209,6 +209,8 @@ export async function hydrateMindmaps(root: HTMLElement): Promise<void> {
   if (!MarkmapCtor || !Transformer) return;
 
   const transformer = new Transformer();
+  // Mindmap labels are untrusted Markdown, including inside fenced blocks.
+  transformer.md.set({ html: false });
 
   for (const node of Array.from(nodes)) {
     try {
